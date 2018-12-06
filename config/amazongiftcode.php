@@ -42,6 +42,9 @@ return [
 
     'partner' => env('GIFT_CARD_PARTNER_ID'),
 
+
+    'currency' => "US",
+
     'debug' => env('GIFT_CARD_DEBUG', false)
 
 ];

@@ -13,11 +13,6 @@ class AmazonGiftCodeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'kamerk22');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'kamerk22');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
@@ -61,22 +56,5 @@ class AmazonGiftCodeServiceProvider extends ServiceProvider
             __DIR__.'/../config/amazongiftcode.php' => config_path('amazongiftcode.php'),
         ], 'amazongiftcode.config');
 
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/kamerk22'),
-        ], 'amazongiftcode.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/kamerk22'),
-        ], 'amazongiftcode.views');*/
-
-        // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/kamerk22'),
-        ], 'amazongiftcode.views');*/
-
-        // Registering package commands.
-        // $this->commands([]);
     }
 }
