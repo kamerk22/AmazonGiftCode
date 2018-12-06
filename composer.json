@@ -1,0 +1,43 @@
+{
+    "name": "kamerk22/amazongiftcode",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kashyap Merai",
+            "email": "kashyapk62@gmail.com",
+            "homepage": "author homepage"
+        }
+    ],
+    "homepage": "https://github.com/kamerk22/amazongiftcode",
+    "keywords": ["Laravel", "AmazonGiftCode"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "kamerk22\\AmazonGiftCode\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "kamerk22\\AmazonGiftCode\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "kamerk22\\AmazonGiftCode\\AmazonGiftCodeServiceProvider"
+            ],
+            "aliases": {
+                "AmazonGiftCode": "kamerk22\\AmazonGiftCode\\Facades\\AmazonGiftCode"
+            }
+        }
+    }
+}
