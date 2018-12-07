@@ -10,7 +10,7 @@
         }
     ],
     "homepage": "https://github.com/kamerk22/amazongiftcode",
-    "keywords": ["Laravel", "AmazonGiftCode"],
+    "keywords": ["Laravel", "AmazonGiftCode", "Amazon", "GiftCard", "AGCOD", "Incentives API", "Amazon Incentives API"],
     "require": {
         "illuminate/support": "~5"
     },
