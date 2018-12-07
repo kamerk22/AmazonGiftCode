@@ -1,5 +1,9 @@
+
 # AmazonGiftCode
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/quality-score.png?b=master&s=0c4b7d1a88b4519df2f2a95282ef07c53159aca2)](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/build.png?b=master&s=8971718965afae0299de675bf1a1f68dd051207a)](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/code-intelligence.svg?b=master&s=e4998c2937ca56b1d7fcb0bb71d678b3a151ffc8)](https://scrutinizer-ci.com/code-intelligence)
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
@@ -46,6 +50,7 @@ To change client configuration dynamic. If you pass only `$key` or other paramet
 $aws = AmazonGiftCode::make($key, $secret, $partner, $endpoint, $currency)->buyGiftCard($value);
 ```
 
+
 ### CreateGiftCard
 
 `getStatus()`
@@ -55,7 +60,7 @@ Get the status of perform request. (`status`)
 ```php
 $status = $aws->getStatus();
 ```
-
+-------------------
 
 `getId()`
 
@@ -65,7 +70,7 @@ To get unique Amazon Gift Card id. (`gcId`)
 ```php
 $gcId = $aws->getId();
 ```
-
+-------------------
 `getCreationRequestId()`
 
 Original Creation Request Id. (`creationRequestId`)
@@ -74,7 +79,7 @@ Original Creation Request Id. (`creationRequestId`)
 ```php
 $creationRequestId = $aws->getCreationRequestId();
 ```
-
+-------------------
 `getClaimCode()`
 
 Amazon Gift Card Claim Code to be used. (`gcClaimCode`)
@@ -83,7 +88,7 @@ Amazon Gift Card Claim Code to be used. (`gcClaimCode`)
 ```php
 $gcClaimCode = $aws->getClaimCode();
 ```
-
+-------------------
 `getValue()`
 
 Amount of generated Gift Card. (`amount`)
@@ -92,7 +97,7 @@ Amount of generated Gift Card. (`amount`)
 ```php
 $amount = $aws->getValue();
 ```
-
+-------------------
 `getCurrency()`
 
 Currency Code of generated Gift Card. (`currencyCode`)
@@ -101,7 +106,7 @@ Currency Code of generated Gift Card. (`currencyCode`)
 ```php
 $currencyCode = $aws->getCurrency();
 ```
-
+-------------------
 `getRawJson()`
 
 Get the raw JSON response. (original response)
@@ -111,7 +116,7 @@ Get the raw JSON response. (original response)
 $rawJson = $aws->getRawJson();
 ```
 
-
+-------------------
 ### CancelGiftCard
 
 `getStatus()`
@@ -121,7 +126,7 @@ Get the status of perform request. (`status`)
 ```php
 $status = $aws->getStatus();
 ```
-
+-------------------
 `getId()`
 
 To get unique Amazon Gift Card id. (`gcId`)
@@ -130,7 +135,7 @@ To get unique Amazon Gift Card id. (`gcId`)
 ```php
 $gcId = $aws->getId();
 ```
-
+-------------------
 `getCreationRequestId()`
 
 Original Creation Request Id. (`creationRequestId`)
@@ -140,7 +145,7 @@ Original Creation Request Id. (`creationRequestId`)
 $creationRequestId = $aws->getCreationRequestId();
 ```
 
-
+-------------------
 `getRawJson()`
 
 Get the raw JSON response. (original response)
@@ -156,11 +161,6 @@ $rawJson = $aws->getRawJson();
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
 
-## Testing
-
-``` bash
-$ composer test
-```
 
 ## Contributing
 
