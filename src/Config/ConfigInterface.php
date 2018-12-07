@@ -15,55 +15,55 @@ interface ConfigInterface
     /**
      * @return String
      */
-    public function getEndpoint();
+    public function getEndpoint(): string;
 
     /**
      * @param $endpoint
      * @return $this
      */
-    public function setEndpoint($endpoint);
+    public function setEndpoint($endpoint): ConfigInterface;
 
     /**
      * @return String
      */
-    public function getAccessKey();
+    public function getAccessKey(): string;
 
     /**
      * @param $key
      * @return $this
      */
-    public function setAccessKey($key);
+    public function setAccessKey($key): ConfigInterface;
 
     /**
      * @return String
      */
-    public function getSecret();
+    public function getSecret(): string;
 
     /**
      * @param $secret
      * @return $this
      */
-    public function setSecret($secret);
+    public function setSecret($secret): ConfigInterface;
 
     /**
      * @return String
      */
-    public function getCurrency();
+    public function getCurrency(): string;
 
     /**
      * @param $currency
      * @return $this
      */
-    public function setCurrency($currency);
+    public function setCurrency($currency): ConfigInterface;
 
     /**
      * @return String
      */
-    public function getPartner();
+    public function getPartner(): string;
 
     /**
      * @param $partner
      * @return $this
      */
-    public function setPartner($partner);
+    public function setPartner($partner): ConfigInterface;
 }

@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Part of the AmazonGiftCode package.
+ * Author: Kashyap Merai <kashyapk62@gmail.com>
+ *
+ */
+
+
 namespace kamerk22\AmazonGiftCode\Facades;
 
 use Illuminate\Support\Facades\Facade;

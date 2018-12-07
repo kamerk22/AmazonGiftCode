@@ -18,35 +18,35 @@ class Config implements ConfigInterface
      *
      * @var string
      */
-    private $endpoint;
+    private $_endpoint;
 
     /**
      * The AWS Access Key.
      *
      * @var string
      */
-    private $accessKey;
+    private $_accessKey;
 
     /**
      * The AWS Secret.
      *
      * @var string
      */
-    private $secretKey;
+    private $_secretKey;
 
     /**
      * The Amazon Gift Card Partner.
      *
      * @var string
      */
-    private $partnerId;
+    private $_partnerId;
 
     /**
      * The Amazon Gift Card Currency.
      *
      * @var string
      */
-    private $currency;
+    private $_currency;
 
 
     public function __construct($key, $secret, $partner, $endpoint, $currency)
@@ -57,39 +57,24 @@ class Config implements ConfigInterface
         $this->setPartner($partner ?: config('amazongiftcode.partner'));
         $this->setEndpoint($endpoint ?: config('amazongiftcode.endpoint'));
         $this->setCurrency($currency ?: config('amazongiftcode.currency'));
-
-        if (!$this->accessKey) {
-            throw new \RuntimeException('The AWS Access Key is not defined!');
-        }
-        if (!$this->endpoint) {
-            throw new \RuntimeException('The AWS Endpoint is not defined!');
-        }
-        if (!$this->secretKey) {
-            throw new \RuntimeException('The AWS Secret is not defined!');
-        }
-        if (!$this->partnerId) {
-            throw new \RuntimeException('The AWS Partner is not defined!');
-        }
-        if (!$this->currency) {
-            throw new \RuntimeException('The Currency is not defined!');
-        }
     }
 
     /**
      * @return String
      */
-    public function getEndpoint()
+    public function getEndpoint(): string
     {
-        return $this->endpoint;
+        return $this->_endpoint;
     }
+
 
     /**
      * @param $endpoint
-     * @return $this
+     * @return ConfigInterface
      */
-    public function setEndpoint($endpoint)
+    public function setEndpoint($endpoint): ConfigInterface
     {
-        $this->endpoint = parse_url($endpoint, PHP_URL_HOST);
+        $this->_endpoint = parse_url($endpoint, PHP_URL_HOST);
 
         return $this;
     }
@@ -97,18 +82,18 @@ class Config implements ConfigInterface
     /**
      * @return String
      */
-    public function getAccessKey()
+    public function getAccessKey(): string
     {
-        return $this->accessKey;
+        return $this->_accessKey;
     }
 
     /**
      * @param String $key
-     * @return $this
+     * @return ConfigInterface
      */
-    public function setAccessKey($key)
+    public function setAccessKey($key): ConfigInterface
     {
-        $this->accessKey = $key;
+        $this->_accessKey = $key;
 
         return $this;
     }
@@ -116,18 +101,18 @@ class Config implements ConfigInterface
     /**
      * @return String
      */
-    public function getSecret()
+    public function getSecret(): string
     {
-        return $this->secretKey;
+        return $this->_secretKey;
     }
 
     /**
      * @param String $secret
-     * @return $this
+     * @return ConfigInterface
      */
-    public function setSecret($secret)
+    public function setSecret($secret): ConfigInterface
     {
-        $this->secretKey = $secret;
+        $this->_secretKey = $secret;
 
         return $this;
     }
@@ -135,18 +120,18 @@ class Config implements ConfigInterface
     /**
      * @return String
      */
-    public function getCurrency()
+    public function getCurrency(): string
     {
-        return $this->currency;
+        return $this->_currency;
     }
 
     /**
      * @param String $currency
-     * @return $this
+     * @return ConfigInterface
      */
-    public function setCurrency($currency)
+    public function setCurrency($currency): ConfigInterface
     {
-        $this->currency = $currency;
+        $this->_currency = $currency;
 
         return $this;
     }
@@ -154,18 +139,18 @@ class Config implements ConfigInterface
     /**
      * @return String
      */
-    public function getPartner()
+    public function getPartner(): string
     {
-        return $this->partnerId;
+        return $this->_partnerId;
     }
 
     /**
      * @param String $partner
-     * @return $this
+     * @return ConfigInterface
      */
-    public function setPartner($partner)
+    public function setPartner($partner): ConfigInterface
     {
-        $this->partnerId = $partner;
+        $this->_partnerId = $partner;
 
         return $this;
     }

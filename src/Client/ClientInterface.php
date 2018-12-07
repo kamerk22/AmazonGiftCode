@@ -18,9 +18,8 @@ interface ClientInterface
      * @param array $params Can be nested for arrays and hashes
      *
      *
-     * @return array An array whose first element is raw request body, second
-     *    element is HTTP status code and third array of HTTP headers.
+     * @return String
      */
 
-    public function request($url, $headers, $params);
+    public function request($url, $headers, $params): string;
 }

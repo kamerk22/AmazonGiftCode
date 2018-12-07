@@ -3,36 +3,64 @@
 namespace kamerk22\AmazonGiftCode;
 
 use kamerk22\AmazonGiftCode\AWS\AWS;
-use kamerk22\AmazonGiftCode\Client\Client;
 use kamerk22\AmazonGiftCode\Config\Config;
-use SebastianBergmann\Environment\Runtime;
+use kamerk22\AmazonGiftCode\Exceptions\AmazonErrors;
 
 class AmazonGiftCode
 {
 
-    private $config;
+    private $_config;
 
+    /**
+     * AmazonGiftCode constructor.
+     *
+     * @param null $key
+     * @param null $secret
+     * @param null $partner
+     * @param null $endpoint
+     * @param null $currency
+     */
     public function __construct($key = null, $secret = null, $partner = null, $endpoint = null, $currency = null)
     {
-        $this->config = new Config($key, $secret, $partner, $endpoint, $currency);
+        $this->_config = new Config($key, $secret, $partner, $endpoint, $currency);
     }
 
-    public function buyGiftCard(Float $value)
+    /**
+     * @param Float $value
+     * @return Response\CreateResponse
+     *
+     * @throws AmazonErrors
+     */
+    public function buyGiftCard(Float $value): Response\CreateResponse
     {
-//        if($value <= 0) {
-//            throw new \RuntimeException("The gift card value must be greater than 0.");
-//        }
-        $aws = new AWS($this->config);
-        return $aws->getCode($value);
+        return (new AWS($this->_config))->getCode($value);
     }
 
-    public static function make($key = null, $secret = null, $partner = null, $endpoint = null, $currency = null)
+
+    /**
+     * @param string $creationRequestId
+     * @param string $gcId
+     * @return Response\CancelResponse
+     */
+    public function cancelGiftCard(string $creationRequestId, string $gcId): Response\CancelResponse
+    {
+        return (new AWS($this->_config))->cancelCode($creationRequestId, $gcId);
+    }
+
+
+    /**
+     * AmazonGiftCode make own client.
+     *
+     * @param null $key
+     * @param null $secret
+     * @param null $partner
+     * @param null $endpoint
+     * @param null $currency
+     * @return AmazonGiftCode
+     */
+    public static function make($key = null, $secret = null, $partner = null, $endpoint = null, $currency = null): AmazonGiftCode
     {
         return new static($key, $secret, $partner, $endpoint, $currency);
     }
 
-    public function ok()
-    {
-        return " ok";
-    }
 }
