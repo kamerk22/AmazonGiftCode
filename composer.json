@@ -1,12 +1,12 @@
 {
     "name": "kamerk22/amazongiftcode",
-    "description": ":description",
+    "description": "Laravel Package for Amazon Gift Codes.",
     "license": "MIT",
     "authors": [
         {
             "name": "Kashyap Merai",
             "email": "kashyapk62@gmail.com",
-            "homepage": "author homepage"
+            "homepage": "https://github.com/kamerk22"
         }
     ],
     "homepage": "https://github.com/kamerk22/amazongiftcode",
