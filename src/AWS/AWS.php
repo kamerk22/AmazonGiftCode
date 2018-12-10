@@ -238,8 +238,7 @@ class AWS
     {
         $amount = trim($amount);
         $payload = [
-//            "creationRequestId" => $this->_config->getPartner() . "_" . time(),
-            'creationRequestId' => 'F0000',
+           "creationRequestId" => $this->_config->getPartner() . "_" . time(),
             'partnerId' => $this->_config->getPartner(),
             'value' =>
                 [
