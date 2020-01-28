@@ -186,7 +186,7 @@ class CreateResponse
             $this->_expiration_date = $jsonResponse['gcExpirationDate'];
         }
         if (array_key_exists('cardStatus', $jsonResponse['cardInfo'])) {
-            $this->_value = $jsonResponse['cardInfo']['cardStatus'];
+            $this->_card_status = $jsonResponse['cardInfo']['cardStatus'];
         }
 
         return $this;
