@@ -35,6 +35,13 @@ class CancelResponse
     protected $_status;
 
     /**
+     * Amazon Gift Card status
+     *
+     * @var string
+     */
+    protected $_card_status;
+
+    /**
      * Amazon Gift Card Raw JSON
      *
      * @var string
@@ -78,6 +85,14 @@ class CancelResponse
         return $this->_status;
     }
 
+    /**
+     * @return string
+     */
+    public function getCardStatus(): string
+    {
+        return $this->_card_status;
+    }
+
 
     /**
      * @return string
@@ -102,6 +117,9 @@ class CancelResponse
         }
         if (array_key_exists('creationRequestId', $jsonResponse)) {
             $this->_creation_request_id = $jsonResponse['creationRequestId'];
+        }
+        if (array_key_exists('cardStatus', $jsonResponse['cardInfo'])) {
+            $this->_value = $jsonResponse['cardInfo']['cardStatus'];
         }
 
         return $this;
