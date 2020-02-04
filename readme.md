@@ -177,7 +177,17 @@ To get available balance amount. (`amount`)
 
 
 ```php
+$getAmount = $aws->getAmount();
+```
+-------------------
+`getCurrency()`
+
+To get currency. (`currency`)
+
+
+```php
 $getCurrency = $aws->getCurrency();
+
 ```
 -------------------
 `getTimestamp()`
