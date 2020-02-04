@@ -42,6 +42,10 @@ To Cancel Amazon Gift Card
 ```php
 $aws = AmazonGiftCode::make()->cancelGiftCard($creationRequestId, $gcId);
 ```
+To Get Available Funds Balance
+```php
+$aws = AmazonGiftCode::make()->getAvailableFunds();
+```
 
 ## Available Methods
 
@@ -155,6 +159,44 @@ Get the raw JSON response. (original response)
 $rawJson = $aws->getRawJson();
 ```
 
+
+-------------------
+### GetAvailableFunds
+
+`getStatus()`
+
+Get the status of perform request. (`status`)
+
+```php
+$status = $aws->getStatus();
+```
+-------------------
+`getAmount()`
+
+To get available balance amount. (`amount`)
+
+
+```php
+$getCurrency = $aws->getCurrency();
+```
+-------------------
+`getTimestamp()`
+
+Get request timestamp. (`getTimestamp`)
+
+
+```php
+$timestamp = $aws->getTimestamp();
+```
+
+-------------------
+`getRawJson()`
+
+Get the raw JSON response. (original response)
+
+
+```php
+$rawJson = $aws->getRawJson();
 
 
 ## Change log
