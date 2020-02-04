@@ -207,7 +207,7 @@ Get the raw JSON response. (original response)
 
 ```php
 $rawJson = $aws->getRawJson();
-
+```
 
 ## Change log
 
