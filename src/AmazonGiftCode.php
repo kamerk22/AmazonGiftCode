@@ -47,6 +47,15 @@ class AmazonGiftCode
         return (new AWS($this->_config))->cancelCode($creationRequestId, $gcId);
     }
 
+    /**
+     * @return Response\CreateBalanceResponse
+     *
+     * @throws AmazonErrors
+     */
+    public function getAvailableFunds(): Response\CreateBalanceResponse
+    {
+        return (new AWS($this->_config))->getBalance();
+    }
 
     /**
      * AmazonGiftCode make own client.

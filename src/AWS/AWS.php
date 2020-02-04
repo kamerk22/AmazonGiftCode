@@ -14,6 +14,7 @@ use kamerk22\AmazonGiftCode\Client\Client;
 use kamerk22\AmazonGiftCode\Config\Config;
 use kamerk22\AmazonGiftCode\Exceptions\AmazonErrors;
 use kamerk22\AmazonGiftCode\Response\CancelResponse;
+use kamerk22\AmazonGiftCode\Response\CreateBalanceResponse;
 use kamerk22\AmazonGiftCode\Response\CreateResponse;
 
 class AWS
@@ -30,6 +31,7 @@ class AWS
     public const TERMINATION_STRING = 'aws4_request';
     public const CREATE_GIFT_CARD_SERVICE = 'CreateGiftCard';
     public const CANCEL_GIFT_CARD_SERVICE = 'CancelGiftCard';
+    public const GET_AVAILABLE_FUNDS_SERVICE = 'GetAvailableFunds';
 
     private $_config;
 
@@ -74,6 +76,19 @@ class AWS
         $dateTimeString = $this->getTimestamp();
         $result = json_decode($this->makeRequest($payload, $canonicalRequest, $serviceOperation, $dateTimeString), true);
         return new CancelResponse($result);
+    }
+
+    /**
+     * @return CreateBalanceResponse
+     */
+    public function getBalance(): CreateBalanceResponse
+    {
+        $serviceOperation = self::GET_AVAILABLE_FUNDS_SERVICE;
+        $payload = $this->getAvailableFundsPayload();
+        $canonicalRequest = $this->getCanonicalRequest($serviceOperation, $payload);
+        $dateTimeString = $this->getTimestamp();
+        $result = json_decode($this->makeRequest($payload, $canonicalRequest, $serviceOperation, $dateTimeString), true);
+        return new CreateBalanceResponse($result);
     }
 
     /**
@@ -261,6 +276,17 @@ class AWS
             'creationRequestId' => $creationRequestId,
             'partnerId' => $this->_config->getPartner(),
             'gcId' => $gcResponseId
+        ];
+        return json_encode($payload);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvailableFundsPayload(): string
+    {
+        $payload = [
+            'partnerId' => $this->_config->getPartner(),
         ];
         return json_encode($payload);
     }
