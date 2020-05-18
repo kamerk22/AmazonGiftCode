@@ -53,7 +53,18 @@ class CreateResponse
      * @var string
      */
     protected $_status;
-
+    /**
+     * Amazon Gift Card Expiration Date
+     *
+     * @var string
+     */
+    protected $_expiration_date;
+    /**
+     * Amazon Gift Card Expiration Date
+     *
+     * @var string
+     */
+    protected $_card_status;
     /**
      * Amazon Gift Card Raw JSON
      *
@@ -122,6 +133,22 @@ class CreateResponse
         return $this->_status;
     }
 
+    /**
+     * @return string
+     */
+    public function getExpirationDate(): string
+    {
+        return $this->_expiration_date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardStatus(): string
+    {
+        return $this->_card_status;
+    }
+
 
     /**
      * @return string
@@ -154,6 +181,12 @@ class CreateResponse
         }
         if (array_key_exists('currencyCode', $jsonResponse['cardInfo']['value'])) {
             $this->_currency = $jsonResponse['cardInfo']['value']['currencyCode'];
+        }
+        if (array_key_exists('gcExpirationDate', $jsonResponse)) {
+            $this->_expiration_date = $jsonResponse['gcExpirationDate'];
+        }
+        if (array_key_exists('cardStatus', $jsonResponse['cardInfo'])) {
+            $this->_card_status = $jsonResponse['cardInfo']['cardStatus'];
         }
 
         return $this;
