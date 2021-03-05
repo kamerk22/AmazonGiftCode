@@ -231,8 +231,6 @@ class AWS
      */
     public function getRegion(): string
     {
-
-
         $endpoint = $this->_config->getEndpoint();
         $regionName = 'us-east-1';
 
@@ -253,7 +251,7 @@ class AWS
     {
         $amount = trim($amount);
         $payload = [
-           "creationRequestId" => $this->_config->getPartner() . "_" . time(),
+            'creationRequestId' => $creationId ?: uniqid($this->_config->getPartner().'_'),
             'partnerId' => $this->_config->getPartner(),
             'value' =>
                 [
