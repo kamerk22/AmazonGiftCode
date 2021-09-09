@@ -27,13 +27,14 @@ class AmazonGiftCode
 
     /**
      * @param Float $value
+     * @param string $creationRequestId
      * @return Response\CreateResponse
      *
      * @throws AmazonErrors
      */
-    public function buyGiftCard(Float $value): Response\CreateResponse
+    public function buyGiftCard(Float $value, string $creationRequestId = null): Response\CreateResponse
     {
-        return (new AWS($this->_config))->getCode($value);
+        return (new AWS($this->_config))->getCode($value, $creationRequestId);
     }
 
 
