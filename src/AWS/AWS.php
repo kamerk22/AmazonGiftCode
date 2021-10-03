@@ -48,14 +48,15 @@ class AWS
 
     /**
      * @param $amount
+     * @param $creationId
      * @return CreateResponse
      *
      * @throws AmazonErrors
      */
-    public function getCode($amount): CreateResponse
+    public function getCode($amount, $creationId = null): CreateResponse
     {
         $serviceOperation = self::CREATE_GIFT_CARD_SERVICE;
-        $payload = $this->getGiftCardPayload($amount);
+        $payload = $this->getGiftCardPayload($amount, $creationId);
         $canonicalRequest = $this->getCanonicalRequest($serviceOperation, $payload);
         $dateTimeString = $this->getTimestamp();
         $result = json_decode($this->makeRequest($payload, $canonicalRequest, $serviceOperation, $dateTimeString), true);
@@ -231,8 +232,6 @@ class AWS
      */
     public function getRegion(): string
     {
-
-
         $endpoint = $this->_config->getEndpoint();
         $regionName = 'us-east-1';
 
@@ -247,13 +246,14 @@ class AWS
 
     /**
      * @param $amount
+     * @param $creationId
      * @return string
      */
     public function getGiftCardPayload($amount, $creationId = null): string
     {
         $amount = trim($amount);
         $payload = [
-           "creationRequestId" => $this->_config->getPartner() . "_" . time(),
+            'creationRequestId' => $creationId ?: uniqid($this->_config->getPartner().'_'),
             'partnerId' => $this->_config->getPartner(),
             'value' =>
                 [

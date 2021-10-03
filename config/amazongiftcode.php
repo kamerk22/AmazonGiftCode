@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'endpoint' => env('GIFT_CARD_ENDPOINT', 'agcod-v2-gamma.amazon.com'),
+    'endpoint' => env('GIFT_CARD_ENDPOINT', 'https://agcod-v2-gamma.amazon.com'),
 
 
     /*
