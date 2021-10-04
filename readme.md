@@ -38,6 +38,10 @@ To Create Amazon Gift Card
 ```php
 $aws = AmazonGiftCode::make()->buyGiftCard($value);
 ```
+Create a Amazon Gift Card with your own `$creationRequestId` (otherwise generated)
+```php
+$aws = AmazonGiftCode::make()->buyGiftCard($value, $creationRequestId);
+```
 To Cancel Amazon Gift Card
 ```php
 $aws = AmazonGiftCode::make()->cancelGiftCard($creationRequestId, $gcId);
