@@ -22,7 +22,7 @@ $ composer require kamerk22/amazongiftcode
 
 Set the following Environment Variable in `.env` file.
 ```bash
-GIFT_CARD_ENDPOINT=https://agcod-v2-gamma.amazon.com
+GIFT_CARD_ENDPOINT=agcod-v2-gamma.amazon.com
 GIFT_CARD_KEY=AWS_ACCESS_KEY
 GIFT_CARD_SECRET=AWS_SECRET
 GIFT_CARD_PARTNER_ID=AWS_PARTNER_ID
@@ -37,6 +37,10 @@ $ php artisan vendor:publish --provider="kamerk22\AmazonGiftCode\AmazonGiftCodeS
 To Create Amazon Gift Card
 ```php
 $aws = AmazonGiftCode::make()->buyGiftCard($value);
+```
+Create a Amazon Gift Card with your own `$creationRequestId` (otherwise generated)
+```php
+$aws = AmazonGiftCode::make()->buyGiftCard($value, $creationRequestId);
 ```
 To Cancel Amazon Gift Card
 ```php
