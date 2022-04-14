@@ -26,6 +26,7 @@ GIFT_CARD_ENDPOINT=https://agcod-v2-gamma.amazon.com
 GIFT_CARD_KEY=AWS_ACCESS_KEY
 GIFT_CARD_SECRET=AWS_SECRET
 GIFT_CARD_PARTNER_ID=AWS_PARTNER_ID
+GIFT_CARD_CURRENCY=USD
 ```
 
 The package will register itself automatically.
