@@ -4,6 +4,7 @@ namespace kamerk22\AmazonGiftCode;
 
 use kamerk22\AmazonGiftCode\AWS\AWS;
 use kamerk22\AmazonGiftCode\Config\Config;
+use kamerk22\AmazonGiftCode\Config\ConfigInterface;
 use kamerk22\AmazonGiftCode\Exceptions\AmazonErrors;
 
 class AmazonGiftCode
@@ -23,6 +24,14 @@ class AmazonGiftCode
     public function __construct($key = null, $secret = null, $partner = null, $endpoint = null, $currency = null)
     {
         $this->_config = new Config($key, $secret, $partner, $endpoint, $currency);
+    }
+
+    /**
+     * @return ConfigInterface
+     */
+    public function getConfig(): ConfigInterface
+    {
+        return $this->_config;
     }
 
     /**
