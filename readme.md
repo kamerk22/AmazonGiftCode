@@ -1,6 +1,8 @@
 
 # AmazonGiftCode
 
+<a href="https://www.buymeacoffee.com/kamerk22" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/quality-score.png?b=master&s=0c4b7d1a88b4519df2f2a95282ef07c53159aca2)](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/build.png?b=master&s=8971718965afae0299de675bf1a1f68dd051207a)](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/code-intelligence.svg?b=master&s=e4998c2937ca56b1d7fcb0bb71d678b3a151ffc8)](https://scrutinizer-ci.com/code-intelligence)
