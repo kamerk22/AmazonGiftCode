@@ -74,7 +74,7 @@ class Config implements ConfigInterface
      */
     public function setEndpoint($endpoint): ConfigInterface
     {
-        $this->_endpoint = parse_url($endpoint, PHP_URL_HOST);
+        $this->_endpoint = parse_url($endpoint, PHP_URL_PATH);
 
         return $this;
     }
