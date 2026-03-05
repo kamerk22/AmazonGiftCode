@@ -20,12 +20,12 @@
         "Amazon Incentives API"
     ],
     "require": {
-        "illuminate/support": "~5|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0"
+        "illuminate/support": "~5|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0|^13.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~7.0|~8.0|^10.5|^11.0",
+        "phpunit/phpunit": "~7.0|~8.0|^10.5|^11.0|^12.5.12",
         "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3.0|^9.0",
+        "orchestra/testbench": "~3.0|^9.0|^11.0",
         "sempro/phpunit-pretty-print": "^1.0"
     },
     "autoload": {
