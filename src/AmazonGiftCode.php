@@ -3,6 +3,7 @@
 namespace kamerk22\AmazonGiftCode;
 
 use kamerk22\AmazonGiftCode\AWS\AWS;
+use kamerk22\AmazonGiftCode\Client\ClientInterface;
 use kamerk22\AmazonGiftCode\Config\Config;
 use kamerk22\AmazonGiftCode\Exceptions\AmazonErrors;
 
@@ -12,6 +13,11 @@ class AmazonGiftCode
     private $_config;
 
     /**
+     * @var ClientInterface|null
+     */
+    private $_client;
+
+    /**
      * AmazonGiftCode constructor.
      *
      * @param null $key
@@ -19,10 +25,13 @@ class AmazonGiftCode
      * @param null $partner
      * @param null $endpoint
      * @param null $currency
+     * @param ClientInterface|null $client Optional HTTP client. Defaults to the
+     *                                     cURL-based Client; inject a fake for testing.
      */
-    public function __construct($key = null, $secret = null, $partner = null, $endpoint = null, $currency = null)
+    public function __construct($key = null, $secret = null, $partner = null, $endpoint = null, $currency = null, ?ClientInterface $client = null)
     {
         $this->_config = new Config($key, $secret, $partner, $endpoint, $currency);
+        $this->_client = $client;
     }
 
     /**
@@ -32,9 +41,9 @@ class AmazonGiftCode
      *
      * @throws AmazonErrors
      */
-    public function buyGiftCard(Float $value, string $creationRequestId = null): Response\CreateResponse
+    public function buyGiftCard(Float $value, ?string $creationRequestId = null): Response\CreateResponse
     {
-        return (new AWS($this->_config))->getCode($value, $creationRequestId);
+        return (new AWS($this->_config, $this->_client))->getCode($value, $creationRequestId);
     }
 
 
@@ -45,7 +54,7 @@ class AmazonGiftCode
      */
     public function cancelGiftCard(string $creationRequestId, string $gcId): Response\CancelResponse
     {
-        return (new AWS($this->_config))->cancelCode($creationRequestId, $gcId);
+        return (new AWS($this->_config, $this->_client))->cancelCode($creationRequestId, $gcId);
     }
 
     /**
@@ -55,7 +64,7 @@ class AmazonGiftCode
      */
     public function getAvailableFunds(): Response\CreateBalanceResponse
     {
-        return (new AWS($this->_config))->getBalance();
+        return (new AWS($this->_config, $this->_client))->getBalance();
     }
 
     /**
