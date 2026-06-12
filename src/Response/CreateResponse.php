@@ -176,16 +176,16 @@ class CreateResponse
         if (array_key_exists('gcClaimCode', $jsonResponse)) {
             $this->_claim_code = $jsonResponse['gcClaimCode'];
         }
-        if (array_key_exists('amount', $jsonResponse['cardInfo']['value'])) {
+        if (isset($jsonResponse['cardInfo']['value']['amount'])) {
             $this->_value = $jsonResponse['cardInfo']['value']['amount'];
         }
-        if (array_key_exists('currencyCode', $jsonResponse['cardInfo']['value'])) {
+        if (isset($jsonResponse['cardInfo']['value']['currencyCode'])) {
             $this->_currency = $jsonResponse['cardInfo']['value']['currencyCode'];
         }
         if (array_key_exists('gcExpirationDate', $jsonResponse)) {
             $this->_expiration_date = $jsonResponse['gcExpirationDate'];
         }
-        if (array_key_exists('cardStatus', $jsonResponse['cardInfo'])) {
+        if (isset($jsonResponse['cardInfo']['cardStatus'])) {
             $this->_card_status = $jsonResponse['cardInfo']['cardStatus'];
         }
 

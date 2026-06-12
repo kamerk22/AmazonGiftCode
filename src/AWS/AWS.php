@@ -11,6 +11,7 @@ namespace kamerk22\AmazonGiftCode\AWS;
 
 
 use kamerk22\AmazonGiftCode\Client\Client;
+use kamerk22\AmazonGiftCode\Client\ClientInterface;
 use kamerk22\AmazonGiftCode\Config\Config;
 use kamerk22\AmazonGiftCode\Exceptions\AmazonErrors;
 use kamerk22\AmazonGiftCode\Response\CancelResponse;
@@ -35,14 +36,23 @@ class AWS
 
     private $_config;
 
+    /**
+     * @var ClientInterface
+     */
+    private $_client;
+
 
     /**
      * AWS constructor.
+     *
      * @param Config $config
+     * @param ClientInterface|null $client Optional HTTP client. Defaults to the
+     *                                     cURL-based Client; inject a fake for testing.
      */
-    public function __construct(Config $config)
+    public function __construct(Config $config, ?ClientInterface $client = null)
     {
         $this->_config = $config;
+        $this->_client = $client ?: new Client();
     }
 
 
@@ -124,7 +134,7 @@ class AWS
 
         $url = 'https://' . $endpoint . '/' . $serviceOperation;
         $headers = $this->buildHeaders($payload, $authorizationValue, $dateTimeString, $serviceTarget);
-        return (new Client())->request($url, $headers, $payload);
+        return $this->_client->request($url, $headers, $payload);
     }
 
     /**

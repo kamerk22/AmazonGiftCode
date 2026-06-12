@@ -105,10 +105,10 @@ class CreateBalanceResponse
         if (!is_array($jsonResponse)) {
             throw new \RuntimeException('Response must be a scalar value');
         }
-        if (array_key_exists('amount', $jsonResponse['availableFunds'])) {
+        if (isset($jsonResponse['availableFunds']['amount'])) {
             $this->_amount = $jsonResponse['availableFunds']['amount'];
         }
-        if (array_key_exists('currencyCode', $jsonResponse['availableFunds'])) {
+        if (isset($jsonResponse['availableFunds']['currencyCode'])) {
             $this->_currency = $jsonResponse['availableFunds']['currencyCode'];
         }
         if (array_key_exists('status', $jsonResponse)) {

@@ -3,9 +3,7 @@
 
 <a href="https://www.buymeacoffee.com/kamerk22" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/quality-score.png?b=master&s=0c4b7d1a88b4519df2f2a95282ef07c53159aca2)](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/build.png?b=master&s=8971718965afae0299de675bf1a1f68dd051207a)](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/kamerk22/AmazonGiftCode/badges/code-intelligence.svg?b=master&s=e4998c2937ca56b1d7fcb0bb71d678b3a151ffc8)](https://scrutinizer-ci.com/code-intelligence)
+[![Tests](https://github.com/kamerk22/AmazonGiftCode/actions/workflows/run-tests.yml/badge.svg?branch=master)](https://github.com/kamerk22/AmazonGiftCode/actions/workflows/run-tests.yml)
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
@@ -13,6 +11,13 @@ AmazonGiftCode is Laravel package for Amazon Gift Codes On Demand (AGCOD). Integ
 
 This package will give you a simplest APIs to Create/Cancel Amazon Gift Code On Demand.
 
+
+## Requirements
+
+- PHP 8.2 or higher (PHP 8.3+ for Laravel 13)
+- Laravel 11, 12 or 13
+
+Older Laravel versions (5 to 10) remain installable, but the test suite and CI target 11, 12 and 13.
 
 ## Installation
 
@@ -214,6 +219,14 @@ Get the raw JSON response. (original response)
 ```php
 $rawJson = $aws->getRawJson();
 ```
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+The test suite runs against Laravel 11, 12 and 13 on PHP 8.2 to 8.4 (Laravel 13 requires PHP 8.3+).
 
 ## Change log
 
