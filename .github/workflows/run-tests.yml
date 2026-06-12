@@ -15,6 +15,7 @@ jobs:
       matrix:
         php: ['8.2', '8.3', '8.4']
         laravel: [12, 13]
+        dependency-version: [prefer-lowest, prefer-stable]
         include:
           - laravel: 12
             testbench: 10
@@ -25,7 +26,7 @@ jobs:
           - laravel: 13
             php: '8.2'
 
-    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
+    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
     steps:
       - name: Checkout code
@@ -41,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer require "orchestra/testbench:^${{ matrix.testbench }}" --dev --no-interaction --no-update
-          composer update --prefer-dist --no-interaction --no-progress
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress
 
       - name: Run tests
         run: vendor/bin/phpunit
