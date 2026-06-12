@@ -15,9 +15,9 @@ This package will give you a simplest APIs to Create/Cancel Amazon Gift Code On 
 ## Requirements
 
 - PHP 8.2 or higher (PHP 8.3+ for Laravel 13)
-- Laravel 11, 12 or 13
+- Laravel 12 or 13
 
-Older Laravel versions (5 to 10) remain installable, but the test suite and CI target 11, 12 and 13.
+Older Laravel versions (5 to 11) remain installable, but the test suite and CI target 12 and 13. Laravel 11 and below are past their security support window.
 
 ## Installation
 
@@ -226,7 +226,7 @@ $rawJson = $aws->getRawJson();
 $ composer test
 ```
 
-The test suite runs against Laravel 11, 12 and 13 on PHP 8.2 to 8.4 (Laravel 13 requires PHP 8.3+).
+The test suite runs against Laravel 12 and 13 on PHP 8.2 to 8.4 (Laravel 13 requires PHP 8.3+).
 
 ## Change log
 
